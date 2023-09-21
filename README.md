@@ -1,4 +1,4 @@
-# js-student-grading-app
+# students-grading-app
 
 The program takes subject scores from the user the provides the perfomance per student  [ LINK](https://students-grading.netlify.app/)
 
