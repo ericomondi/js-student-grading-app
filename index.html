@@ -97,20 +97,25 @@
       <input class="input-field" type="number" id="sos" required />
       <br /><br />
       <button onclick="calculateGrades()">Calculate Grades</button>
-      <div id="results">
-        <h2>Grades Summary</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Total Marks</th>
-              <th>Average Marks</th>
-              <th>Grade</th>
-            </tr>
-          </thead>
-          <tbody id="gradesTableBody"></tbody>
-        </table>
-      </div>
+    </div>
+    <div id="results">
+      <h2>Grades Summary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>English</th>
+            <th>Kiswahili</th>
+            <th>Science</th>
+            <th>Social Studies</th>
+            <th>Mathematics</th>
+            <th>Total Marks</th>
+            <th>Average Marks</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody id="gradesTableBody"></tbody>
+      </table>
     </div>
 
     <script>
@@ -139,11 +144,11 @@
         }
 
         const newRow = document.createElement("tr");
-        newRow.innerHTML = `<td>${name}</td><td>${total}</td><td>${avgMarks.toFixed(
+        newRow.innerHTML = `<td>${name}</td><td>${math}</td><td>${eng}</td><td>${kis}</td><td>${sci}</td><td>${sos}</td><td>${total}</td><td>${avgMarks.toFixed(
           2
         )}</td><td>${grade}</td>`;
         document.getElementById("gradesTableBody").appendChild(newRow);
-        // Clear input fields
+        // Clear input fields after submision
         document.getElementById("name").value = "";
         document.getElementById("math").value = "";
         document.getElementById("eng").value = "";
