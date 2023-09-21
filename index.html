@@ -1,189 +1,277 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Student Grading App</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f4f4f4;
+      }
 
-        h1 {
-            color: #333;
-        }
+      h1 {
+        color: #333;
+      }
 
-        #calculator {
-            width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
+      #calculator {
+        width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
 
-        .input-label {
-            display: inline-block;
-            width: 150px;
-            text-align: right;
-            margin-right: 10px;
-        }
+      .input-label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+        margin-right: 10px;
+      }
 
-        .input-field {
-            width: 50px;
-            font-size: 16px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
+      .input-field {
+        width: 50px;
+        font-size: 16px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+      button:hover {
+        background-color: #0056b3;
+      }
 
-        #results {
-            margin-top: 20px;
-        }
+      #results {
+        margin-top: 20px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
 
-        th, td {
-            padding: 10px;
-            border: 1px solid #ccc;
-            text-align: left;
-        }
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+      }
 
-        th {
-            background-color: #007bff;
-            color: #fff;
-        }
+      th {
+        background-color: #007bff;
+        color: #fff;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Student Grading App</h1>
     <div id="calculator">
-        <h2>Enter Student Grades</h2>
-        <form id="gradeForm">
-            <label class="input-label" for="name">Name:</label>
-            <input class="input-field" type="text" id="name" required /><br /><br />
+      <h2>Enter Student Grades</h2>
+      <form id="gradeForm">
+        <label class="input-label" for="name">Name:</label>
+        <input class="input-field" type="text" id="name" required /><br /><br />
 
-            <label class="input-label" for="math">Mathematics:</label>
-            <input class="input-field" type="number" id="math" required /><br /><br />
+        <label class="input-label" for="math">Mathematics:</label>
+        <input
+          class="input-field"
+          type="number"
+          id="math"
+          required
+        /><br /><br />
 
-            <label class="input-label" for="eng">English:</label>
-            <input class="input-field" type="number" id="eng" required /><br /><br />
+        <label class="input-label" for="eng">English:</label>
+        <input
+          class="input-field"
+          type="number"
+          id="eng"
+          required
+        /><br /><br />
 
-            <label class="input-label" for="kis">Kiswahili:</label>
-            <input class="input-field" type="number" id="kis" required /><br /><br />
+        <label class="input-label" for="kis">Kiswahili:</label>
+        <input
+          class="input-field"
+          type="number"
+          id="kis"
+          required
+        /><br /><br />
 
-            <label class="input-label" for="sci">Science:</label>
-            <input class="input-field" type="number" id="sci" required /><br /><br />
+        <label class="input-label" for="sci">Science:</label>
+        <input
+          class="input-field"
+          type="number"
+          id="sci"
+          required
+        /><br /><br />
 
-            <label class="input-label" for="sos">Social Studies:</label>
-            <input class="input-field" type="number" id="sos" required /><br /><br />
+        <label class="input-label" for="sos">Social Studies:</label>
+        <input
+          class="input-field"
+          type="number"
+          id="sos"
+          required
+        /><br /><br />
 
-            <button type="button" onclick="calculateGrades()">Calculate Grades</button>
-        </form>
+        <button type="button" onclick="calculateGrades()">
+          Calculate Grades
+        </button>
+      </form>
     </div>
     <div id="results">
-        <h2>Grades Summary</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Mathematics</th>
-                    <th>English</th>
-                    <th>Kiswahili</th>
-                    <th>Science</th>
-                    <th>Social Studies</th>
-                    <th>Total Marks</th>
-                    <th>Average Marks</th>
-                    <th>Grade</th>
-                </tr>
-            </thead>
-            <tbody id="gradesTableBody"></tbody>
-        </table>
+      <h2>Grades Summary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Mathematics</th>
+            <th>English</th>
+            <th>Kiswahili</th>
+            <th>Science</th>
+            <th>Social Studies</th>
+            <th>Total Marks</th>
+            <th>Average Marks</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody id="gradesTableBody"></tbody>
+      </table>
     </div>
 
     <script>
-        // Function to move focus to the next input field when Enter is pressed
-        function handleKeyPress(event, nextElementId) {
-            if (event.key === "Enter") {
-                document.getElementById(nextElementId).focus();
-                event.preventDefault(); // Prevent form submission
-            }
+      // Function to check if the input is valid
+      function isInputValid(inputElement) {
+        const inputValue = inputElement.value;
+        if (inputElement.id === "name") {
+          // Name input should contain only letters
+          return /^[a-zA-Z]+$/.test(inputValue.trim());
+        } else {
+          // Other score inputs should be numeric values between 0 and 100
+          const numericValue = parseFloat(inputValue);
+          return (
+            !isNaN(numericValue) && numericValue >= 0 && numericValue <= 100
+          );
+        }
+      }
+
+      <!-- function to check if the input is valid and move focus to the next input -->
+      function handleInput(event, currentElement, nextElementId) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Prevent form submission
+          if (isInputValid(currentElement)) {
+            document.getElementById(nextElementId).focus();
+          } else {
+            alert("Invalid input. Please enter a valid value.");
+          }
+        }
+      }
+
+      // Add event listeners to input fields
+      document
+        .getElementById("name")
+        .addEventListener("keydown", function (event) {
+          handleInput(event, this, "math");
+        });
+      document
+        .getElementById("math")
+        .addEventListener("keydown", function (event) {
+          handleInput(event, this, "eng");
+        });
+      document
+        .getElementById("eng")
+        .addEventListener("keydown", function (event) {
+          handleInput(event, this, "kis");
+        });
+      document
+        .getElementById("kis")
+        .addEventListener("keydown", function (event) {
+          handleInput(event, this, "sci");
+        });
+      document
+        .getElementById("sci")
+        .addEventListener("keydown", function (event) {
+          handleInput(event, this, "sos");
+        });
+      // Add event listener to the last input (Social Studies) to submit the form
+      document
+        .getElementById("sos")
+        .addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            calculateGrades();
+            event.preventDefault(); // Prevent default "Enter" behavior
+          }
+        });
+
+      function calculateGrades() {
+        const name = document.getElementById("name").value;
+        const math = parseFloat(document.getElementById("math").value);
+        const eng = parseFloat(document.getElementById("eng").value);
+        const kis = parseFloat(document.getElementById("kis").value);
+        const sci = parseFloat(document.getElementById("sci").value);
+        const sos = parseFloat(document.getElementById("sos").value);
+
+        // Validate name input
+        if (!/^[a-zA-Z]+$/.test(name.trim())) {
+          alert("Please enter a valid name.");
+          return;
         }
 
-        // Add event listeners to input fields
-        document.getElementById("name").addEventListener("keydown", function (event) {
-            handleKeyPress(event, "math");
-        });
-        document.getElementById("math").addEventListener("keydown", function (event) {
-            handleKeyPress(event, "eng");
-        });
-        document.getElementById("eng").addEventListener("keydown", function (event) {
-            handleKeyPress(event, "kis");
-        });
-        document.getElementById("kis").addEventListener("keydown", function (event) {
-            handleKeyPress(event, "sci");
-        });
-        document.getElementById("sci").addEventListener("keydown", function (event) {
-            handleKeyPress(event, "sos");
-        });
-
-        // Add event listener to the last input (Social Studies) to submit the form
-        document.getElementById("sos").addEventListener("keydown", function (event) {
-            if (event.key === "Enter") {
-                calculateGrades()
-                event.preventDefault(); // Prevent default "Enter" behavior
-            }
-        });
-
-        function calculateGrades() {
-            const name = document.getElementById("name").value;
-            const math = parseFloat(document.getElementById("math").value);
-            const eng = parseFloat(document.getElementById("eng").value);
-            const kis = parseFloat(document.getElementById("kis").value);
-            const sci = parseFloat(document.getElementById("sci").value);
-            const sos = parseFloat(document.getElementById("sos").value);
-
-            const total = math + eng + kis + sci + sos;
-            const avgMarks = total / 5;
-            let grade = "";
-
-            if (avgMarks > 79) {
-                grade = "A";
-            } else if (avgMarks >= 60 && avgMarks <= 79) {
-                grade = "B";
-            } else if (avgMarks > 49 && avgMarks <= 59) {
-                grade = "C";
-            } else if (avgMarks >= 40 && avgMarks <= 49) {
-                grade = "D";
-            } else {
-                grade = "E";
-            }
-
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `<td>${name}</td><td>${math}</td><td>${eng}</td><td>${kis}</td><td>${sci}</td><td>${sos}</td><td>${total}</td><td>${avgMarks.toFixed(2)}</td><td>${grade}</td>`;
-            document.getElementById("gradesTableBody").appendChild(newRow);
-
-            // Clear input fields after submission
-            document.getElementById("gradeForm").reset();
+        // Validate  score input values
+        if (
+          math < 0 ||
+          math > 100 ||
+          isNaN(math) ||
+          eng < 0 ||
+          eng > 100 ||
+          isNaN(eng) ||
+          kis < 0 ||
+          kis > 100 ||
+          isNaN(kis) ||
+          sci < 0 ||
+          sci > 100 ||
+          isNaN(sci) ||
+          sos < 0 ||
+          sos > 100 ||
+          isNaN(sos)
+        ) {
+          alert("Scores must be numeric values between 0 and 100.");
+          return;
         }
+
+        const total = math + eng + kis + sci + sos;
+        const avgMarks = total / 5;
+        let grade = "";
+
+        if (avgMarks > 79) {
+          grade = "A";
+        } else if (avgMarks >= 60 && avgMarks <= 79) {
+          grade = "B";
+        } else if (avgMarks > 49 && avgMarks <= 59) {
+          grade = "C";
+        } else if (avgMarks >= 40 && avgMarks <= 49) {
+          grade = "D";
+        } else {
+          grade = "E";
+        }
+
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `<td>${name}</td><td>${math}</td><td>${eng}</td><td>${kis}</td><td>${sci}</td><td>${sos}</td><td>${total}</td><td>${avgMarks.toFixed(
+          2
+        )}</td><td>${grade}</td>`;
+        document.getElementById("gradesTableBody").appendChild(newRow);
+
+        // Clear input fields after submission
+        document.getElementById("gradeForm").reset();
+      }
     </script>
-</body>
+  </body>
 </html>
