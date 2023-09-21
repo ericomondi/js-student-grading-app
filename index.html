@@ -1,154 +1,156 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Student Grading App</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f4f4f4;
+      }
 
-        h1 {
-            color: #333;
-        }
+      h1 {
+        color: #333;
+      }
 
-        #calculator {
-            width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
+      #calculator {
+        width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
 
-        .input-label {
-            display: inline-block;
-            width: 150px;
-            text-align: right;
-            margin-right: 10px;
-        }
+      .input-label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+        margin-right: 10px;
+      }
 
-        .input-field {
-            width: 50px;
-            font-size: 16px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
+      .input-field {
+        width: 50px;
+        font-size: 16px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+      button:hover {
+        background-color: #0056b3;
+      }
 
-        #results {
-            margin-top: 20px;
-        }
+      #results {
+        margin-top: 20px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
 
-        th, td {
-            padding: 10px;
-            border: 1px solid #ccc;
-            text-align: left;
-        }
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+      }
 
-        th {
-            background-color: #007bff;
-            color: #fff;
-        }
+      th {
+        background-color: #007bff;
+        color: #fff;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Student Grading App</h1>
     <div id="calculator">
-        <h2>Enter Student Grades</h2>
-        <label class="input-label">Name:</label>
-        <input class="input-field" type="text" id="name" required>
-        <br><br>
-        <label class="input-label">Mathematics:</label>
-        <input class="input-field" type="number" id="math" required>
-        <br><br>
-        <label class="input-label">English:</label>
-        <input class="input-field" type="number" id="eng" required>
-        <br><br>
-        <label class="input-label">Kiswahili:</label>
-        <input class="input-field" type="number" id="kis" required>
-        <br><br>
-        <label class="input-label">Science:</label>
-        <input class="input-field" type="number" id="sci" required>
-        <br><br>
-        <label class="input-label">Social Studies:</label>
-        <input class="input-field" type="number" id="sos" required>
-        <br><br>
-        <button onclick="calculateGrades()">Calculate Grades</button>
-        <div id="results">
-            <h2>Grades Summary</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Total Marks</th>
-                        <th>Average Marks</th>
-                        <th>Grade</th>
-                    </tr>
-                </thead>
-                <tbody id="gradesTableBody">
-                </tbody>
-            </table>
-        </div>
+      <h2>Enter Student Grades</h2>
+      <label class="input-label">Name:</label>
+      <input class="input-field" type="text" id="name" required />
+      <br /><br />
+      <label class="input-label">Mathematics:</label>
+      <input class="input-field" type="number" id="math" required />
+      <br /><br />
+      <label class="input-label">English:</label>
+      <input class="input-field" type="number" id="eng" required />
+      <br /><br />
+      <label class="input-label">Kiswahili:</label>
+      <input class="input-field" type="number" id="kis" required />
+      <br /><br />
+      <label class="input-label">Science:</label>
+      <input class="input-field" type="number" id="sci" required />
+      <br /><br />
+      <label class="input-label">Social Studies:</label>
+      <input class="input-field" type="number" id="sos" required />
+      <br /><br />
+      <button onclick="calculateGrades()">Calculate Grades</button>
+      <div id="results">
+        <h2>Grades Summary</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Total Marks</th>
+              <th>Average Marks</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody id="gradesTableBody"></tbody>
+        </table>
+      </div>
     </div>
 
     <script>
-        function calculateGrades() {
-            const name = document.getElementById("name").value;
-            const math = parseFloat(document.getElementById("math").value);
-            const eng = parseFloat(document.getElementById("eng").value);
-            const kis = parseFloat(document.getElementById("kis").value);
-            const sci = parseFloat(document.getElementById("sci").value);
-            const sos = parseFloat(document.getElementById("sos").value);
+      function calculateGrades() {
+        const name = document.getElementById("name").value;
+        const math = parseFloat(document.getElementById("math").value);
+        const eng = parseFloat(document.getElementById("eng").value);
+        const kis = parseFloat(document.getElementById("kis").value);
+        const sci = parseFloat(document.getElementById("sci").value);
+        const sos = parseFloat(document.getElementById("sos").value);
 
-            const total = math + eng + kis + sci + sos;
-            const avgMarks = total / 5;
-            let grade = "";
+        const total = math + eng + kis + sci + sos;
+        const avgMarks = total / 5;
+        let grade = "";
 
-            if (avgMarks > 79) {
-                grade = "A";
-            } else if (avgMarks >= 60 && avgMarks <= 79) {
-                grade = "B";
-            } else if (avgMarks > 49 && avgMarks <= 59) {
-                grade = "C";
-            } else if (avgMarks >= 40 && avgMarks <= 49) {
-                grade = "D";
-            } else {
-                grade = "E";
-            }
-
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `<td>${name}</td><td>${total}</td><td>${avgMarks.toFixed(2)}</td><td>${grade}</td>`;
-            document.getElementById("gradesTableBody").appendChild(newRow);
-              // Clear input fields
-              document.getElementById("name").value = "";
-            document.getElementById("math").value = "";
-            document.getElementById("eng").value = "";
-            document.getElementById("kis").value = "";
-            document.getElementById("sci").value = "";
-            document.getElementById("sos").value = "";
+        if (avgMarks > 79) {
+          grade = "A";
+        } else if (avgMarks >= 60 && avgMarks <= 79) {
+          grade = "B";
+        } else if (avgMarks > 49 && avgMarks <= 59) {
+          grade = "C";
+        } else if (avgMarks >= 40 && avgMarks <= 49) {
+          grade = "D";
+        } else {
+          grade = "E";
         }
+
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `<td>${name}</td><td>${total}</td><td>${avgMarks.toFixed(
+          2
+        )}</td><td>${grade}</td>`;
+        document.getElementById("gradesTableBody").appendChild(newRow);
+        // Clear input fields
+        document.getElementById("name").value = "";
+        document.getElementById("math").value = "";
+        document.getElementById("eng").value = "";
+        document.getElementById("kis").value = "";
+        document.getElementById("sci").value = "";
+        document.getElementById("sos").value = "";
+      }
     </script>
-</body>
+  </body>
 </html>
