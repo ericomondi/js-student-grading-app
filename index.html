@@ -201,6 +201,11 @@
         .addEventListener("keydown", function (event) {
           handleInput(event, this, "sos");
         });
+      document
+        .getElementById("sos")
+        .addEventListener("keydown", function (event) {
+          handleInput(event, this, "name");
+        });
       // Add event listener to the last input (Social Studies) to submit the form
       document
         .getElementById("sos")
@@ -209,7 +214,7 @@
             calculateGrades();
           event.preventDefault(); // Prevent default "Enter" behavior
           }
-          handleInput(event, this, "name");
+        
         });
 
       function calculateGrades() {
